@@ -1,0 +1,68 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div1{background: #ccc;-webkit-transition:2s all ease;
+            /*-webkit-animation-delay: 0.4s;
+            -moz-animation-delay: 0.4s;
+            -o-animation-delay: 0.4s;
+            animation-delay: 0.4s;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-iteration-count: infinite;
+            -o-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;*/
+            /*//-webkit-transform:translate(50px,0);*/
+            -webkit-animation:div1 2s linear infinite;
+            animation:div1 2s linear infinite;
+        }
+        @keyframes div1 {
+            20%{-webkit-transform:translate(10px,0);}
+            50%,100%{-webkit-transform:translate(0px,0);}
+            75%{-webkit-transform:translate(10px,0);}
+        }
+        @keyframes div1 {
+            20%{transform:translate(10px,0);}
+            50%,100%{transform:translate(0px,0);}
+            75%{transform:translate(10px,0);}
+        }
+        /*.div1:active{
+            -webkit-transform:translate(50px,0);
+        }*/
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            var oDiv=document.querySelector('.div1');
+            var timer=null;
+            oDiv.onclick=function(){
+
+                var i=5;
+                timer=setInterval(function(){
+
+                    i+=5;
+                    //console.log(i);
+                    oDiv.style.WebkitTransform='translate('+i+'px,'+0+'px)';
+
+                    if(i>300){
+                        clearInterval(timer);
+                        i-=5;
+
+                        oDiv.style.WebkitTransform='translate('+0+'px,'+0+'px)';
+                        console.log(i);
+                    }/*else if(i<0){
+                     clearInterval(timer);
+                     //oDiv.style.WebkitTransform='translate('+0+'px,'+0+'px)';
+                     i++;
+                     oDiv.style.WebkitTransform='translate('+i+'px,'+0+'px)';
+
+                     }*/
+                },100);
+            }
+        },false)
+    </script>
+</head>
+<body>
+<div class="div1">
+    <img src="m.jpg" />
+</div>
+
+</body></html>
